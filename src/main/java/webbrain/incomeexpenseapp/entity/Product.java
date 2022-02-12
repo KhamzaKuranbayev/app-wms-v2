@@ -35,6 +35,8 @@ public class Product {
     @ManyToMany
     private Set<Attachment> attachments = new HashSet<>();
 
+    private Integer expirePeriod;
+
     public Product(String name, UUID code, Category category, Measurement measurement, Set<Attachment> attachments) {
         this.name = name;
         this.code = code;

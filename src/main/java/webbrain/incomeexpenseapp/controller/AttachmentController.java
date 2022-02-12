@@ -43,7 +43,7 @@ public class AttachmentController {
                 toSystem
         );
 
-        return new Response(true, "File Uploaded", attachData);
+        return new Response(true, "File Uploaded", attachData, HttpStatus.CREATED);
 
     }
 

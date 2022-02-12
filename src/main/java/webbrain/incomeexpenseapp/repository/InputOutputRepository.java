@@ -15,6 +15,6 @@ public interface InputOutputRepository extends JpaRepository<InputOutput, Long> 
     @Query("select io from InputOutput io where io.date >= ?1 and io.date <= ?2 and io.type = ?3")
     List<InputOutput> selectIncomeByDateRange(LocalDateTime start, LocalDateTime end, InputOutputType type);
 
-
-
+    @Query("select io from InputOutput io where io.date >= ?1 and io.date <= ?2 and io.type = ?3 order by io.date asc")
+    List<InputOutput> selectProductsByDateRange(LocalDateTime start, LocalDateTime end, InputOutputType type);
 }

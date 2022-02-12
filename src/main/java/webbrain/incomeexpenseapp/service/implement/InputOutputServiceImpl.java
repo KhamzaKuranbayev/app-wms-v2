@@ -1,6 +1,7 @@
 package webbrain.incomeexpenseapp.service.implement;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import webbrain.incomeexpenseapp.dto.InputOutputDto;
 import webbrain.incomeexpenseapp.dto.Response;
@@ -49,7 +50,7 @@ public class InputOutputServiceImpl implements InputOutputService {
         else
             message = "Output";
 
-        return new Response(true, message + " Saved!", savedInputOutput);
+        return new Response(true, message + " Saved!", savedInputOutput, HttpStatus.CREATED);
     }
 
     @Override
@@ -71,6 +72,6 @@ public class InputOutputServiceImpl implements InputOutputService {
         if (set.size() > 0)
             inputOutputProductRepository.saveAll(set);
 
-        return new Response(true, "Success");
+        return new Response(true, "Success", HttpStatus.CREATED);
     }
 }
